@@ -396,7 +396,8 @@ export default function SecretModal({
                 items-center
                 gap-6
                 mt-10
-                h[-180px]
+                h-[300px]
+                overflow-hidden
                 "
               >
                 <button
@@ -426,12 +427,12 @@ export default function SecretModal({
                     setNoPos({
                       x:
                         Math.random() *
-                          120 -
-                        60,
+                          200 -
+                        100,
                       y:
                         Math.random() *
-                          60 -
-                        30,
+                          140 -
+                        70,
                     });
 
                   }}

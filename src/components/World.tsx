@@ -467,14 +467,14 @@ export default function World() {
               className="
               absolute
               bottom-[170px]
-              left-[2500px]
+              left-[2380px]
               text-white
               text-xl
               md:text-3xl
               game-shadow
               "
             >
-              ✨ Happy Birthday Sayangku -Ariya
+              ✨ Happy Birthday Sayangku, I❤️U & Sayang kamu banyak-banyak❤️
             </div>
 
           </div>
