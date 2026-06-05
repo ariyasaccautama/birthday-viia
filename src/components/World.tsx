@@ -212,7 +212,7 @@ export default function World() {
 
               const bgm =
                 new Audio(
-                  "/music/adventure.mp3"
+                  "/music/Adventure.mp3"
                 );
 
               bgm.loop = true;
