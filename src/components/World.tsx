@@ -127,7 +127,7 @@ export default function World() {
 
         const endingMusic =
           new Audio(
-            "/music/ending.mp3"
+            "/music/Ending.mp3"
           );
 
         endingMusic.loop = true;
@@ -638,7 +638,7 @@ export default function World() {
 
                     const secretMusic =
                       new Audio(
-                        "/music/secret.mp3"
+                        "/music/Secret.mp3"
                       );
 
                     secretMusic.loop = true;
@@ -1021,7 +1021,7 @@ export default function World() {
 
             const bgm =
               new Audio(
-                "/music/adventure.mp3"
+                "/music/Adventure.mp3"
               );
 
             bgm.loop = true;
