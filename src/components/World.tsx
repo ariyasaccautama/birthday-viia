@@ -8,7 +8,16 @@ import SecretModal from "./SecretModal";
 
 export default function World() {
   const [worldOffset, setWorldOffset] = useState(0);
+
   const [isWalking, setIsWalking] = useState(false);
+
+  const [showIntro, setShowIntro] =
+  useState(true);
+
+  const [music, setMusic] =
+    useState<HTMLAudioElement | null>(
+      null
+    );
 
   const [mazeComplete, setMazeComplete] =
     useState(false);
@@ -109,6 +118,133 @@ export default function World() {
     });
   };
 
+  useEffect(() => {
+
+    const handleLove =
+      () => {
+
+        music?.pause();
+
+        const endingMusic =
+          new Audio(
+            "/music/ending.mp3"
+          );
+
+        endingMusic.loop = true;
+        endingMusic.volume = 0.5;
+
+        endingMusic.play();
+
+        setMusic(endingMusic);
+      };
+
+    window.addEventListener(
+      "love-complete",
+      handleLove
+    );
+
+    return () =>
+      window.removeEventListener(
+        "love-complete",
+        handleLove
+      );
+
+  }, [music]);
+
+  if (showIntro) {
+    return (
+      <div
+        className="
+        fixed
+        inset-0
+        bg-slate-900
+        flex
+        items-center
+        justify-center
+        p-6
+        z-[9999]
+        "
+      >
+        <div
+          className="
+          bg-white
+          text-black
+          rounded-xl
+          p-6
+          max-w-md
+          text-center
+          "
+        >
+          <h1
+            className="
+            text-2xl
+            font-bold
+            mb-4
+            "
+          >
+            🎂 Happy Birthday
+            Viia ❤️
+          </h1>
+
+          <p className="mb-4">
+            Selamat datang di
+            Birthday Adventure ✨
+          </p>
+
+          <div className="text-left">
+            <p>
+              📜 Cara Bermain:
+            </p>
+
+            <p>
+              • Swipe ke bawah untuk berjalan
+            </p>
+
+            <p>
+              • Jika muncul OPEN,
+              klik objeknya
+            </p>
+
+            <p>
+              • Jelajahi semua
+              kenangan sampai akhir
+            </p>
+          </div>
+
+          <button
+            onClick={() => {
+
+              const bgm =
+                new Audio(
+                  "/music/adventure.mp3"
+                );
+
+              bgm.loop = true;
+              bgm.volume = 0.5;
+
+              bgm.play();
+
+              setMusic(bgm);
+
+              setShowIntro(false);
+            }}
+
+            className="
+            mt-6
+            bg-pink-500
+            text-white
+            px-6
+            py-3
+            rounded-lg
+            "
+          >
+            OK ❤️
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <main className="relative">
       <div className="h-[1200vh]">
@@ -137,8 +273,6 @@ export default function World() {
               <br />
               VIIA&apos;s Birthday Adventure
             </h1>
-
-            <p>Scroll supaya Viia bisa jalan</p>
 
           {/* WORLD */}
           <div
@@ -170,6 +304,76 @@ export default function World() {
                 height={80}
                 className="pixelated"
               />
+            </div>
+
+            {/* BIRDS */}
+
+            <div
+              className="
+              absolute
+              top-24
+              left-[200px]
+              animate-bird-1
+              "
+            >
+              🦅
+            </div>
+
+            <div
+              className="
+              absolute
+              top-36
+              left-[1200px]
+              animate-bird-2
+              "
+            >
+              🦇
+            </div>
+
+            <div
+              className="
+              absolute
+              top-28
+              left-[2200px]
+              animate-bird-3
+              "
+            >
+              🦅
+            </div>
+
+            {/* BIRDS */}
+
+            <div
+              className="
+              absolute
+              top-24
+              left-[200px]
+              animate-bird-1
+              "
+            >
+              🦇
+            </div>
+
+            <div
+              className="
+              absolute
+              top-36
+              left-[1200px]
+              animate-bird-2
+              "
+            >
+              🕊️
+            </div>
+
+            <div
+              className="
+              absolute
+              top-28
+              left-[2200px]
+              animate-bird-3
+              "
+            >
+              🕊️
             </div>
 
             {/* ================= HOME ================= */}
@@ -429,6 +633,21 @@ export default function World() {
 
             <div onClick={() => {
                   if (activeSpot === "letter") {
+
+                    music?.pause();
+
+                    const secretMusic =
+                      new Audio(
+                        "/music/secret.mp3"
+                      );
+
+                    secretMusic.loop = true;
+                    secretMusic.volume = 0.5;
+
+                    secretMusic.play();
+
+                    setMusic(secretMusic);
+
                     setOpenModal("secret");
                   }
                 }}className={`absolute bottom-[60px] left-[2100px]
@@ -793,6 +1012,26 @@ export default function World() {
 
       {openModal === "secret" && (
         <SecretModal
+
+          closeModal={() => {
+
+            setOpenModal(null);
+
+            music?.pause();
+
+            const bgm =
+              new Audio(
+                "/music/adventure.mp3"
+              );
+
+            bgm.loop = true;
+            bgm.volume = 0.5;
+
+            bgm.play();
+
+            setMusic(bgm);
+          }}
+
           mazeComplete={mazeComplete}
           setMazeComplete={setMazeComplete}
           loveComplete={loveComplete}
@@ -817,17 +1056,24 @@ export default function World() {
           {/* CHARACTER */}
           <Character isWalking={isWalking} />
 
-          {/* GRASS */}
-          <div
-            className="
-            absolute
-            bottom-0
-            w-full
-            h-16
-            md:h-20
-            bg-green-500
-            "
-          />
+           <div
+              className="
+              absolute
+              bottom-0
+              w-full
+              h-16
+              md:h-20
+              pixelated
+              "
+              style={{
+                backgroundImage:
+                  "url('/pixel/grass.png')",
+                backgroundRepeat:
+                  "repeat",
+                backgroundSize:
+                  "120px auto",
+              }}
+            />
 
         </div>
       </div>

@@ -16,6 +16,7 @@ const walls = [
 ];
 
 type Props = {
+closeModal: () => void;
   mazeComplete: boolean;
   setMazeComplete: (
     value: boolean
@@ -33,6 +34,8 @@ type Props = {
 };
 
 export default function SecretModal({
+  closeModal,
+
   mazeComplete,
   setMazeComplete,
   loveComplete,
@@ -182,9 +185,7 @@ export default function SecretModal({
 
         {/* CLOSE */}
         <button
-          onClick={() =>
-            window.location.reload()
-          }
+          onClick={closeModal}
           className="
           absolute
           top-3
@@ -401,11 +402,19 @@ export default function SecretModal({
                 "
               >
                 <button
-                  onClick={() =>
+                onClick={() => {
+
                     setLoveComplete(
-                      true
+                    true
+                    );
+
+                    window.dispatchEvent(
+                    new Event(
+                        "love-complete"
                     )
-                  }
+                    );
+
+                }}
                   className="
                   bg-pink-500
                   text-white
