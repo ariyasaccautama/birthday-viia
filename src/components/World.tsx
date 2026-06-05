@@ -118,39 +118,6 @@ export default function World() {
     });
   };
 
-  useEffect(() => {
-
-    const handleLove =
-      () => {
-
-        music?.pause();
-
-        const endingMusic =
-          new Audio(
-            "/music/Ending.mp3"
-          );
-
-        endingMusic.loop = true;
-        endingMusic.volume = 0.5;
-
-        endingMusic.play();
-
-        setMusic(endingMusic);
-      };
-
-    window.addEventListener(
-      "love-complete",
-      handleLove
-    );
-
-    return () =>
-      window.removeEventListener(
-        "love-complete",
-        handleLove
-      );
-
-  }, [music]);
-
   if (showIntro) {
     return (
       <div
@@ -525,10 +492,16 @@ export default function World() {
               )}
 
             <div onClick={() => {
-                  if (activeSpot === "trip") {
-                    setOpenModal("trip");
-                  }
-                }}className={`absolute bottom-[50px] left-[1350px]
+
+                    if (activeSpot === "trip") {
+
+                      music?.pause();
+
+                      setOpenModal("trip");
+
+                    }
+
+                  }}className={`absolute bottom-[50px] left-[1350px]
             ${
               activeSpot === "trip"
                 ? "animate-pulse scale-110"
@@ -577,7 +550,23 @@ export default function World() {
 
             <div onClick={() => {
                   if (activeSpot === "cake") {
+
+                    music?.pause();
+
+                    const cakeMusic =
+                      new Audio(
+                        "/music/Cake.mp3"
+                      );
+
+                    cakeMusic.loop = true;
+                    cakeMusic.volume = 0.5;
+
+                    cakeMusic.play();
+
+                    setMusic(cakeMusic);
+
                     launchConfetti();
+
                     setOpenModal("cake");
                   }
                 }}className={`absolute bottom-[65px] left-[1700px]
@@ -868,9 +857,25 @@ export default function World() {
           >
 
             <button
-              onClick={() =>
-                setOpenModal(null)
-              }
+              onClick={() => {
+
+                setOpenModal(null);
+
+                music?.pause();
+
+                const bgm =
+                  new Audio(
+                    "/music/Adventure.mp3"
+                  );
+
+                bgm.loop = true;
+                bgm.volume = 0.5;
+
+                bgm.play();
+
+                setMusic(bgm);
+
+              }}
               className="
               absolute
               top-3
@@ -893,11 +898,11 @@ export default function World() {
 
             <video
               autoPlay
+              playsInline
               controls
               className="
               w-full
               rounded-lg
-              mb-4
               "
             >
               <source
@@ -961,9 +966,25 @@ export default function World() {
           >
 
             <button
-              onClick={() =>
-                setOpenModal(null)
-              }
+              onClick={() => {
+
+                music?.pause();
+
+                const bgm =
+                  new Audio(
+                    "/music/Adventure.mp3"
+                  );
+
+                bgm.loop = true;
+                bgm.volume = 0.5;
+
+                bgm.play();
+
+                setMusic(bgm);
+
+                setOpenModal(null);
+
+                }}
               className="
               absolute
               top-3
