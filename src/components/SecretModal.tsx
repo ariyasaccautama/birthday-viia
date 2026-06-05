@@ -172,8 +172,9 @@ export default function SecretModal({
         text-black
         rounded-xl
         p-6
-        max-w-lg
         w-full
+        max-w-2xl
+        min-h-[500px]
         max-h-[90vh]
         overflow-auto
         "
@@ -389,10 +390,13 @@ export default function SecretModal({
 
               <div
                 className="
+                relative
                 flex
                 justify-center
-                gap-4
-                mt-6
+                items-center
+                gap-6
+                mt-10
+                h[-180px]
                 "
               >
                 <button
