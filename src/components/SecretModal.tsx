@@ -494,15 +494,6 @@ export default function SecretModal({
               Unlocked
             </h2>
 
-            <h3
-              className="
-              text-xl
-              mt-2
-              "
-            >
-              ❤️ Soulmate
-            </h3>
-
             <p className="mt-6">
               Terima kasih sudah
               menjadi bagian hidup aku.
