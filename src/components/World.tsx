@@ -91,8 +91,8 @@ export default function World() {
       ) {
         setActiveSpot("letter");
       } else if (
-        currentPos > 2350 &&
-        currentPos < 2600
+        currentPos > 2300 &&
+        currentPos < 2450
       ) {
         setActiveSpot("end");
       }else {
@@ -721,7 +721,7 @@ export default function World() {
                 className="
                 absolute
                 bottom-[250px]
-                left-[2450px]
+                left-[2380px]
                 text-4xl
                 animate-bounce
                 "
@@ -736,7 +736,7 @@ export default function World() {
               className="
               absolute
               bottom-[70px]
-              left-[2450px]
+              left-[2500px]
               cursor-pointer
               animate-bob
               "
@@ -786,8 +786,8 @@ export default function World() {
               <Image
                 src="/pixel/ariya.png"
                 alt="Ariya"
-                width={70}
-                height={70}
+                width={50}
+                height={50}
                 className="
                 rounded-full
                 border-4
@@ -799,13 +799,42 @@ export default function World() {
 
               <div
                 className="
+                relative
                 w-12
                 h-16
                 bg-blue-900
                 mx-auto
                 rounded-t-lg
                 "
-              />
+              >
+
+                {/* LEFT ARM */}
+
+                <div
+                  className="
+                  absolute
+                  top-2
+                  -left-2
+                  w-2
+                  h-8
+                  bg-blue-800
+                  "
+                />
+
+                {/* RIGHT ARM */}
+
+                <div
+                  className="
+                  absolute
+                  top-2
+                  -right-2
+                  w-2
+                  h-8
+                  bg-blue-800
+                  "
+                />
+
+              </div>
 
               {/* LEGS */}
 
