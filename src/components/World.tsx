@@ -92,7 +92,7 @@ export default function World() {
         setActiveSpot("letter");
       } else if (
         currentPos > 2300 &&
-        currentPos < 2450
+        currentPos < 2451
       ) {
         setActiveSpot("end");
       }else {
