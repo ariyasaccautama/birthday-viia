@@ -138,6 +138,8 @@ export default function World() {
               VIIA&apos;s Birthday Adventure
             </h1>
 
+            <p>Scroll supaya Viia bisa jalan</p>
+
           {/* WORLD */}
           <div
             style={{
@@ -472,7 +474,7 @@ export default function World() {
               game-shadow
               "
             >
-              ✨ Happy Birthday Viia
+              ✨ Happy Birthday Sayangku -Ariya
             </div>
 
           </div>
@@ -529,7 +531,7 @@ export default function World() {
 
               <p className="
                 text-black">
-                Welcome to VIIA&apos; Birthday
+                Welcome to VIIA&apos;s Birthday
                 Adventure.
               </p>
 
