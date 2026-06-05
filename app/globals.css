@@ -25,6 +25,7 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -125,4 +126,11 @@ img {
 
 .animate-leg-right {
   animation: leg-right 0.4s infinite;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }

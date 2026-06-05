@@ -143,8 +143,10 @@ export default function World() {
             style={{
               width: `${WORLD_WIDTH}px`,
               transform: `translateX(-${worldOffset}px)`,
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
             }}
-            className="absolute inset-y-0 transition-all duration-75"
+            className="absolute inset-y-0"
           >
 
             {/* CLOUDS */}
