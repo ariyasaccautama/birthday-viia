@@ -183,7 +183,7 @@ export default function World() {
             "
           >
             🎂 Happy Birthday
-            Viia ❤️
+            Sayang ❤️
           </h1>
 
           <p className="mb-4">
@@ -197,18 +197,14 @@ export default function World() {
             </p>
 
             <p>
-              • Swipe ke bawah untuk berjalan
+              • Swipe ke bawah buat jalan
             </p>
 
             <p>
-              • Jika muncul OPEN,
-              klik objeknya
+              • Kalo muncul OPEN,
+              klik gambarnya
             </p>
 
-            <p>
-              • Jelajahi semua
-              kenangan sampai akhir
-            </p>
           </div>
 
           <button
