@@ -31,6 +31,15 @@ export default function World() {
   const [openModal, setOpenModal] =
   useState<string | null>(null);
 
+  const [showEndingText, setShowEndingText] =
+  useState(false);
+
+  const endingMessage =
+    "✨ Happy Birthday Sayangku, I❤️U & Sayang kamu banyak-banyak❤️";
+
+  const [typedText, setTypedText] =
+    useState("");
+
   const [activeSpot, setActiveSpot] =
   useState<string | null>(null);
  
@@ -81,7 +90,12 @@ export default function World() {
         currentPos < 2100
       ) {
         setActiveSpot("letter");
-      } else {
+      } else if (
+        currentPos > 2350 &&
+        currentPos < 2600
+      ) {
+        setActiveSpot("end");
+      }else {
         setActiveSpot(null);
       }
 
@@ -107,6 +121,43 @@ export default function World() {
         handleScroll
       );
   }, []);
+
+  useEffect(() => {
+
+    if (!showEndingText)
+      return;
+
+    let index = 0;
+
+    const interval =
+      setInterval(() => {
+
+        setTypedText(
+          endingMessage.slice(
+            0,
+            index + 1
+          )
+        );
+
+        index++;
+
+        if (
+          index >=
+          endingMessage.length
+        ) {
+          clearInterval(
+            interval
+          );
+        }
+
+      }, 50);
+
+    return () =>
+      clearInterval(
+        interval
+      );
+
+  }, [showEndingText]);
 
   const launchConfetti = () => {
     confetti({
@@ -665,22 +716,124 @@ export default function World() {
               💌 Secret
             </div>
 
+            {activeSpot === "end" && (
+              <div
+                className="
+                absolute
+                bottom-[250px]
+                left-[2450px]
+                text-4xl
+                animate-bounce
+                "
+              >
+                ❤️ OPEN
+              </div>
+            )}
+
             {/* ================= END ================= */}
 
             <div
               className="
               absolute
-              bottom-[170px]
-              left-[2380px]
-              text-white
-              text-xl
-              md:text-3xl
-              game-shadow
+              bottom-[70px]
+              left-[2450px]
+              cursor-pointer
+              animate-bob
               "
-            >
-              ✨ Happy Birthday Sayangku, I❤️U & Sayang kamu banyak-banyak❤️
-            </div>
+              onClick={() => {
 
+              if (activeSpot === "end") {
+                launchConfetti();
+                
+                setTypedText("");
+
+                setShowEndingText(false);
+
+                setTimeout(() => {
+                setShowEndingText(true);
+                }, 50);
+              }
+
+              }}
+            >
+
+              {/* TEXT */}
+
+              {showEndingText && (
+                <div
+                  className="
+                  absolute
+                  bottom-[140px]
+                  left-1/2
+                  -translate-x-1/2
+                  bg-white
+                  text-black
+                  px-4
+                  py-2
+                  rounded-xl
+                  w-[260px]
+                  text-center
+                  text-sm
+                  z-50
+                  "
+                >
+                  {typedText}
+                </div>
+              )}
+
+              {/* HEAD */}
+
+              <Image
+                src="/pixel/ariya.png"
+                alt="Ariya"
+                width={70}
+                height={70}
+                className="
+                rounded-full
+                border-4
+                border-white
+                "
+              />
+
+              {/* BODY */}
+
+              <div
+                className="
+                w-12
+                h-16
+                bg-blue-900
+                mx-auto
+                rounded-t-lg
+                "
+              />
+
+              {/* LEGS */}
+
+              <div
+                className="
+                flex
+                justify-center
+                gap-2
+                "
+              >
+                <div
+                  className="
+                  w-2
+                  h-8
+                  bg-zinc-800
+                  "
+                />
+
+                <div
+                  className="
+                  w-2
+                  h-8
+                  bg-zinc-800
+                  "
+                />
+              </div>
+
+            </div>
           </div>
 
           {openModal === "home" && (
