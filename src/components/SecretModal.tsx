@@ -55,6 +55,9 @@ export default function SecretModal({
       y: 0,
     });
 
+  const [yesSize, setYesSize] =
+    useState(1);
+
   const [hearts, setHearts] =
     useState([
       { x: 2, y: 0 },
@@ -415,12 +418,21 @@ export default function SecretModal({
                     );
 
                 }}
+
+                  style={{
+                    transform:
+                      `scale(${yesSize})`,
+                  }}
+                  
                   className="
                   bg-pink-500
                   text-white
-                  px-5
-                  py-2
-                  rounded
+                  w-36
+                  h-14
+                  rounded-lg
+                  text-s
+                  font-bold
+                  shadow-lg
                   "
                 >
                   Sayang ❤️
@@ -430,7 +442,11 @@ export default function SecretModal({
                   onClick={() => {
 
                     setNoSize(
-                      noSize * 0.8
+                      noSize * 0.9
+                    );
+
+                    setYesSize(
+                      yesSize * 1.15
                     );
 
                     setNoPos({
@@ -456,9 +472,12 @@ export default function SecretModal({
                   className="
                   bg-zinc-400
                   text-white
-                  px-5
-                  py-2
-                  rounded
+                  w-36
+                  h-14
+                  rounded-lg
+                  text-s
+                  font-bold
+                  shadow-lg
                   "
                 >
                   Ga Sayang
