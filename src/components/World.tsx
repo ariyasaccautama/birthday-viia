@@ -215,6 +215,10 @@ export default function World() {
             </p>
 
             <p>
+              • Buka Link di Handphone
+            </p>
+
+            <p>
               • Swipe ke bawah buat jalan
             </p>
 
@@ -444,7 +448,7 @@ export default function World() {
             <div
               className="
               absolute
-              bottom-[200px]
+              bottom-[220px]
               left-[450px]
               text-white
               text-sm
@@ -640,7 +644,7 @@ export default function World() {
             <div
               className="
               absolute
-              bottom-[210px]
+              bottom-[220px]
               left-[1710px]
               text-white
               text-sm
@@ -721,12 +725,12 @@ export default function World() {
                 className="
                 absolute
                 bottom-[250px]
-                left-[2380px]
+                left-[2430px]
                 text-4xl
                 animate-bounce
                 "
               >
-                ❤️ OPEN
+                👩‍❤️‍👨Talk
               </div>
             )}
 
@@ -794,6 +798,21 @@ export default function World() {
                 border-white
                 "
               />
+
+              <div
+              className="
+              absolute
+              bottom-[150px]
+              left-1/2
+              -translate-x-1/2
+              text-white
+              text-sm
+              whitespace-nowrap
+              game-shadow
+              "
+            >
+              🧑🏼‍🦰 Ariya
+            </div>
 
               {/* BODY */}
 
@@ -912,7 +931,7 @@ export default function World() {
                 mb-4
                 "
               >
-                🏡 Welcome Home
+                🏡 Welcome Home 👩‍❤️‍👨
               </h2>
 
               <p className="
@@ -921,9 +940,10 @@ export default function World() {
                 Adventure.
               </p>
 
+              <br />
+
               <p className="mt-4 text-black">
-                Scroll to explore our story
-                together ❤️
+                Hope that one day we can live together in the same home.❤️
               </p>
 
             </div>
@@ -1096,11 +1116,11 @@ export default function World() {
             <div className="space-y-2">
 
               <p className="mt-4">
-                We got tired.
+                We Dance.
               </p>
 
               <p>
-                We got hungry.
+                We got tired.
               </p>
 
               <p>
