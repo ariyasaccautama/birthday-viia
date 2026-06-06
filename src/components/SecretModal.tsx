@@ -396,6 +396,7 @@ export default function SecretModal({
                 className="
                 relative
                 flex
+                flex-col
                 justify-center
                 items-center
                 gap-6
@@ -423,7 +424,7 @@ export default function SecretModal({
                     transform:
                       `scale(${yesSize})`,
                   }}
-                  
+
                   className="
                   bg-pink-500
                   text-white
